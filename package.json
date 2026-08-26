@@ -1,0 +1,27 @@
+{
+  "name": "adapi-maxence-fournier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxencefournier-lang/Adapi-maxence-fournier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/maxencefournier-lang/Adapi-maxence-fournier/issues"
+  },
+  "homepage": "https://github.com/maxencefournier-lang/Adapi-maxence-fournier#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
