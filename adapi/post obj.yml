@@ -1,0 +1,26 @@
+info:
+  name: post obj
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/objets
+  body:
+    type: json
+    data: |-
+      {
+        "libelle": "ordinateur portable",
+        "poids_kg": 2,
+        "etat_arrivee": "a_reparer",
+        "categorie_id": 3,
+        "depot_id": 3
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
