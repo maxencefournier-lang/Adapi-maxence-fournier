@@ -4,6 +4,9 @@ import categorieRouter from './routes/categorie.js'
 import swaggerUi from "swagger-ui-express";
 // import swaggerDocument from "../swagger.json" with { type: "json"};
 import { readFileSync } from "fs";
+import personneRouter from "./routes/personne.js";
+import depotRouter from "./routes/depot.js";
+import statsRouter from "./routes/stats.js";
 
 const app = express();
 
@@ -22,11 +25,14 @@ app.get("/", (req, res) => {
     res.send("Bonjour La Remise");
 });
 
-app.use('/api/objets', objetRouter);
+app.use('/objets', objetRouter);
 // "/"
 // "/:id"
 
-app.use('/api/categorie', categorieRouter)
+app.use("/personnes", personneRouter);
+app.use('/categorie', categorieRouter);
+app.use("/depots", depotRouter);
+app.use("/stats", statsRouter);
 
 
 app.listen(3000, () => {

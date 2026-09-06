@@ -76,6 +76,42 @@ router.put('/:id', async (req, res) => {
     res.json(rows[0])
 });
 
+router.patch("/:id/statut", async (req, res) => {
+    const { statut, prix } = req.body;
+    const { id } = req.params;
+
+    const statutsPossibles = [
+        "arrive",
+        "en_reparation",
+        "en_rayon",
+        "vendu",
+        "recycle"
+    ];
+
+    if (!statut || !statutsPossibles.includes(statut)) {
+        return res.status(400).json({
+            erreur: "Statut incorrect"
+        });
+    }
+
+    const { rows } = await pool.query(
+        `UPDATE objet
+        SET statut = $1,
+        prix = COALESCE($2, prix)
+        WHERE id = $3
+         RETURNING *`,
+        [statut, prix ?? null, id]
+    );
+
+    if (rows.length === 0) {
+        return res.status(404).json({
+            erreur: "Objet introuvable"
+        });
+    }
+
+    res.status(200).json(rows[0]);
+});
+
 export const testInfo = "coucou"
 
 export default router;
